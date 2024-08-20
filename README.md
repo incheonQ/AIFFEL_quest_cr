@@ -1,5 +1,5 @@
 # AIFFEL_quest_cr
-''' bash
+''' 
 AIFFEL_quest_cr
 ├── MainQuest
 │   ├── Quest01
