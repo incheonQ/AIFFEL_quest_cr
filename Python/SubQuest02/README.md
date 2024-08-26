@@ -4,8 +4,6 @@
 - 코더 : 김민규 
 - 리뷰어 : 김지영
 
-![image](https://github.com/user-attachments/assets/1e81af85-6987-427d-a6fd-e6698ec66f16)
-
 
 # PRT(Peer Review Template)
 - [O]  **1. 주어진 문제를 해결하는 완성된 코드가 제출되었나요?**
