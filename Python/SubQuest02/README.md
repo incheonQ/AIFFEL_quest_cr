@@ -4,8 +4,7 @@
 - 코더 : 김민규 
 - 리뷰어 : 김지영
 
-  ![image](https://github.com/user-attachments/assets/3aa90889-3d0b-4ee0-9635-13b00e7eb6a2)
-
+![image](https://github.com/user-attachments/assets/1e81af85-6987-427d-a6fd-e6698ec66f16)
 
 
 # PRT(Peer Review Template)
