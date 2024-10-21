@@ -1,6 +1,6 @@
 
 <aside>
-🔑 **PRT(Peer Review Template)**
+🔑 <strong>PRT(Peer Review Template)</strong>
 
 - [ ]  **1. 주어진 문제를 해결하는 완성된 코드가 제출되었나요?**
     - 문제에서 요구하는 기능이 정상적으로 작동하는지?
