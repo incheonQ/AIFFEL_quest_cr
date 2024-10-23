@@ -67,7 +67,7 @@
 - 검색 결과 표시 영역
 
 ## 구현 영상
-<img src="https://github.com/incheonQ/AIFFEL_quest_cr/blob/main/Flutter/SubQuest04/AndroidEmulator-test_55542024-10-2312-25-17-ezgif.com-video-to-gif-converter.gif", width=720, height=1024>
+<img src="https://github.com/incheonQ/AIFFEL_quest_cr/blob/main/Flutter/SubQuest04/AndroidEmulator-test_55542024-10-2312-25-17-ezgif.com-video-to-gif-converter.gif", width="720", height="1024">
 
 ## 회고
 Flutter 공부는 주말을 통해 깊이 할 예정입니다.
