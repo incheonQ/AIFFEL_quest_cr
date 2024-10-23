@@ -20,10 +20,10 @@
 ## 앱 구조도
 
 ## 앱 와이어 프레임 (사용 툴 : InVision)
-https://913056.invisionapp.com/freehand/--------eOeRJveLB
+[와이어 프레임](https://913056.invisionapp.com/freehand/--------eOeRJveLB)
 
 ## 프로토타이핑 (사용 툴 : Marvel App)
-https://marvelapp.com/prototype/7028dd4/screen/95832715
+[프로토타이핑](https://marvelapp.com/prototype/7028dd4/screen/95832715)
 
 ## 페이지 구현
 
