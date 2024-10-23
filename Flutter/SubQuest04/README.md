@@ -18,6 +18,8 @@
   - 지역별 타겟 시장 : 인도네시아 (전체 사용자의 24.78%, 1298만 명), 인도 (22.16%, 1161만 명), 미국(16.22%, 850만 명)
  
 ## 앱 구조도
+- 레이블링과 허브앤스포크 구조가 섞인 방식
+[앱 구조도](https://www.tldraw.com/s/v2_c_qdnAq8RMNsXqIInBrkYjM?d=v-1636.-4170.9580.9180.page)
 
 ## 앱 와이어 프레임 (사용 툴 : InVision)
 [와이어 프레임](https://913056.invisionapp.com/freehand/--------eOeRJveLB)
