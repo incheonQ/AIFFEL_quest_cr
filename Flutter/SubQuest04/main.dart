@@ -8,11 +8,13 @@ void main() {
 class Perplexity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // UI 구성
     return MaterialApp(
-      title: 'Instagram',
+      title: 'Perplexity',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.blue, // 다양한 음영을 자동으로 생성하여 앱 전체에 일관된 색상 테마를 적용
+        visualDensity: VisualDensity
+            .adaptivePlatformDensity, // 다양한 화면 크기와 플랫폼에서 최적화된 레이아웃을 제공
       ),
       home: HomePage(),
     );
@@ -20,20 +22,23 @@ class Perplexity extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  // 상태를 가지는 위젯으로, 사용자 상호작용에 따라 내용이 변경 가능
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
+  // HomePage의 상태 관리
+  int _currentIndex = 0; // 현재 선택된 페이지의 인덱스
 
   final List<Widget> _pages = [
     MainPage(),
     SearchPage(),
     Threadpage(),
-  ];
+  ]; // 표시할 페이지들의 리스트
 
   void _onItemTapped(int index) {
+    // 하단 네비게이션 바의 아이템이 탭될 때 호출되어 상태를 업데이트
     setState(() {
       _currentIndex = index;
     });
@@ -42,6 +47,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Flutter에서 매우 중요한 위젯으로 기본적인 머터리얼 디자인 레이아웃 구조를 구현 (Appbar, Body, BottomNavigationBar, BottomSheet, ...)
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -63,9 +69,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController =
+      TextEditingController(); // 검색 입력 필드 제어
 
   final List<String> _suggestedSearches = [
+    // 추천 검색어 리스트
     '초밥 에티켓',
     '슬롯머신의 승률',
     '펜싱 연습 세트 가격',
@@ -75,6 +83,7 @@ class _MainPageState extends State<MainPage> {
   ];
 
   void _showAttachmentOptions() {
+    // 첨부 옵션을 보여주는 모달 바텀 시트 (이미지 선택, 사진찍기, 파일 업로드)
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
