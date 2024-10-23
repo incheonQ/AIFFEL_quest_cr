@@ -19,13 +19,13 @@
  
 ## 앱 구조도
 - 레이블링과 허브앤스포크 구조가 섞인 방식
-[앱 구조도](https://www.tldraw.com/s/v2_c_qdnAq8RMNsXqIInBrkYjM?d=v-1636.-4170.9580.9180.page)
+- [앱 구조도](https://www.tldraw.com/s/v2_c_qdnAq8RMNsXqIInBrkYjM?d=v-1636.-4170.9580.9180.page)
 
 ## 앱 와이어 프레임 (사용 툴 : InVision)
-[와이어 프레임](https://913056.invisionapp.com/freehand/--------eOeRJveLB)
+- [와이어 프레임](https://913056.invisionapp.com/freehand/--------eOeRJveLB)
 
 ## 프로토타이핑 (사용 툴 : Marvel App)
-[프로토타이핑](https://marvelapp.com/prototype/7028dd4/screen/95832715)
+- [프로토타이핑](https://marvelapp.com/prototype/7028dd4/screen/95832715)
 
 ## 페이지 구현
 
