@@ -1,3 +1,6 @@
+# 모델 학습
+[Google Colab](https://colab.research.google.com/drive/1fH3SjuTfOpYmXWn-Cx_fAzNLgC5l89mz?usp=sharing)
+
 # 회고
 김민규 : 모델 학습과 Flutter 중 스스로 Flutter 쪽이 더 약하다고 생각해서 공부할 겸 하겠다고 맡았으나 UI를 구현하는데 그치고 모델을 돌리는 것에 실패했다. Flutter 노드 학습의 절반 이상 빠진 후폭풍이 이제서야 나타나기 시작한 것 같다. Flutter 공부를 더 열심히 해야겠다.
 
