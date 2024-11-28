@@ -12,7 +12,6 @@ from torchvision import transforms
 from transformers import AutoModelForImageSegmentation
 import cv2
 import os
-from tensorflow.keras.preprocessing import image
 
 
 # Create the FastAPI application
@@ -73,20 +72,23 @@ def transform_image(image):
     return transform(image)
 
 
-async def prediction_model(img):
+async def prediction_model():
     # Usage
 
-    input_images = transform_image(img).unsqueeze(0).to(device)
+    image = Image.open('original_image.png')
+    img_orig = cv2.imread('original_image.png')
+
+    input_images = transform_image(image).unsqueeze(0).to(device)
 
     # Prediction
     with torch.no_grad():
         preds = model(input_images)[-1].sigmoid().cpu()
     pred = preds[0].squeeze()
     pred_pil = transforms.ToPILImage()(pred)
-    mask = pred_pil.resize(img.size)
+    mask = pred_pil.resize(image.size)
 
     # Blur
-    img_blurred = cv2.blur(img, (13, 13))
+    img_blurred = cv2.blur(img_orig, (13, 13))
 
     # Mask
     np_mask = np.array(mask)
@@ -95,7 +97,8 @@ async def prediction_model(img):
     # Concat
     # img_bg_mask = cv2.bitwise_not(img_mask_color)
     # img_bg_blur = cv2.bitwise_and(img_blurred, img_bg_mask)
-    img_concat = np.where(img_mask_color > 0, img, img_blurred)
+    img_concat = np.where(img_mask_color > 0, img_orig, img_blurred)
+    img_concat = cv2.cvtColor(img_concat, cv2.COLOR_BGR2RGB)
 
     return img_concat
 
@@ -124,10 +127,16 @@ async def pred(file: UploadFile = File(...)):
         image_data = await file.read()
         img = Image.open(io.BytesIO(image_data))  # 이미지 열기
     
-        predicted_img = await prediction_model(img)
+        predicted_img = await prediction_model()
 
-        return StreamingResponse(io.BytesIO(predicted_img), media_type='image/png')
-    
+        # NumPy 배열을 PIL 이미지로 변환
+        predicted_img_pil = Image.fromarray(predicted_img.astype(np.uint8))  # NumPy 배열을 PIL 이미지로 변환
+
+        img_byte_arr = io.BytesIO()
+        predicted_img_pil.save(img_byte_arr, format='PNG')  # PIL 이미지를 메모리 버퍼에 저장
+        img_byte_arr.seek(0)  # 버퍼의 시작으로 이동
+
+        return StreamingResponse(img_byte_arr, media_type='image/png')
     except Exception as e:
         logger.error("Prediction failed: %s", e)  # 오류 로깅
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
