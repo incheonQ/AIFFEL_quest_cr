@@ -75,8 +75,10 @@ def transform_image(image):
 async def prediction_model():
     # Usage
 
-    image = Image.open('original_image.png')
-    img_orig = cv2.imread('original_image.png')
+    img_path = 'uploaded_image.png'
+
+    image = Image.open(img_path)
+    img_orig = cv2.imread(img_path)
 
     input_images = transform_image(image).unsqueeze(0).to(device)
 
@@ -114,6 +116,11 @@ async def upload_image(file: UploadFile = File(...)):
         img_byte_arr = io.BytesIO()
         img_byte_arr.write(await file.read())  # 파일 내용을 메모리 버퍼에 저장
         img_byte_arr.seek(0)  # 버퍼의 시작으로 이동
+
+        # 파일을 서버에 저장
+        with open('uploaded_image.png', 'wb') as f:  # 파일 이름을 원하는 대로 변경 가능
+            f.write(img_byte_arr.getvalue())  # 메모리에서 파일 저장
+
 
         # StreamingResponse를 사용하여 메모리에서 직접 반환
         return StreamingResponse(img_byte_arr, media_type='image/png')
