@@ -79,10 +79,15 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _applyModelEdit() async {
-    if (_editedImage != null) {
+    if (_originalImage != null) {
       var request = http.MultipartRequest(
-          'POST', Uri.parse('http://127.0.0.1:8000/upload/')); // FastAPI 서버 URL
-      request.files.add(http.MultipartFile.fromBytes('file', _editedImage!));
+          'POST',
+          Uri.parse(
+              'https://601b-222-239-25-12.ngrok-free.app/pred/')); // FastAPI 서버 URL
+
+      // 원본 이미지를 사용하여 모델 편집 요청
+      request.files.add(http.MultipartFile.fromBytes('file', _originalImage!,
+          filename: 'original_image.jpg'));
 
       var response = await request.send();
 
@@ -97,6 +102,8 @@ class _MyAppState extends State<MyApp> {
         print(
             'Failed to apply model edit: ${response.statusCode} - $responseBody');
       }
+    } else {
+      print('원본 이미지가 없습니다.');
     }
   }
 
