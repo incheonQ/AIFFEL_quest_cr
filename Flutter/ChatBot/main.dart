@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '레시피 챗봇',
+      title: '요리사 챗봇',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -28,6 +28,8 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _questionController = TextEditingController();
   final TextEditingController _cuisineController = TextEditingController();
   String _response = '';
+  double _temperature = 0.1;
+  bool _useRAG = false;
 
   Future<void> _sendQuestion() async {
     final question = _questionController.text;
@@ -36,7 +38,12 @@ class _ChatScreenState extends State<ChatScreen> {
     final response = await http.post(
       Uri.parse('https://5459-222-239-25-12.ngrok-free.app/chat'),
       headers: {'Content-Type': 'application/json'},
-      body: json.encode({'question': question, 'cuisine': cuisine}),
+      body: json.encode({
+        'question': question,
+        'cuisine': cuisine,
+        'temperature': _temperature,
+        'RAG': _useRAG,
+      }),
     );
 
     if (response.statusCode == 200) {
@@ -55,7 +62,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('레시피 챗봇'),
+        title: Text('백종원 챗봇'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -69,6 +76,38 @@ class _ChatScreenState extends State<ChatScreen> {
             TextField(
               controller: _cuisineController,
               decoration: InputDecoration(labelText: '요리 종류를 입력하세요'),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Temperature: ${_temperature.toStringAsFixed(1)}',
+              style: TextStyle(fontSize: 16),
+            ),
+            Slider(
+              value: _temperature,
+              min: 0.0,
+              max: 1.0,
+              divisions: 10,
+              label: _temperature.toStringAsFixed(1),
+              onChanged: (value) {
+                setState(() {
+                  _temperature = value;
+                });
+              },
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Wiki RAG 사용'),
+                Switch(
+                  value: _useRAG,
+                  onChanged: (value) {
+                    setState(() {
+                      _useRAG = value;
+                    });
+                  },
+                ),
+              ],
             ),
             SizedBox(height: 10),
             ElevatedButton(
