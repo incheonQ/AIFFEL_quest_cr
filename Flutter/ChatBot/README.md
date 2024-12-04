@@ -1,6 +1,7 @@
 # 파일 설명
 - OGN_transchatbot_for_colab.ipynb : Google Colab 환경 트랜스포머 기반 챗봇 실습
 - transformer_chatbot_project.ipynb : Aiffel LMS 환경 //
+- README.md : This
 - 그 외 : RAG 활용 챗봇 어플리케이션
 
 
