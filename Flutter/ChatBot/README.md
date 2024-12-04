@@ -1,3 +1,9 @@
+# 파일 설명
+- OGN_transchatbot_for_colab.ipynb : Google Colab 환경 트랜스포머 기반 챗봇 실습
+- transformer_chatbot_project.ipynb : Aiffel LMS 환경 //
+- 그 외 : RAG 활용 챗봇 어플리케이션
+
+
 # 회고
 김민규 : 일전에 배웠던 RAG를 오늘 챗봇 만들기 프로젝트에 사용해보았습니다. 배워둔 기술을 그루 여러분과 공유할 수 있어서 뿌듯했습니다. 
          하고 싶은 것은 많은데 시간이 부족해 하지 못한 것이 항상 아쉬운 것 같습니다. 
